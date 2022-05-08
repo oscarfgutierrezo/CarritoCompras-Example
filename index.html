@@ -6,13 +6,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ogani</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./public/css/normalize.css">
     <link rel="stylesheet" href="./public/css/mobile.css">
 </head>
 <body>
-    <header>
-        <a href="#">
+    <div id="overlay"></div>
+    <header class="header">
+        <a class="header__logo" href="#">
             <img src="./public/img/logo.png" alt="Logo Ogani">
         </a>
+        <button class="header__menuBtn" id="menuBtn-open">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <div class="header__shop">
+            <button>
+                <i class="fa-solid fa-heart"></i>
+                <span>0</span>
+            </button>
+            <button>
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>0</span>
+            </button>
+            <p>item: <span>$0</span> </p>
+        </div>
     </header>
+    <div class="collapsibleMenu hidden" id="collapsibleMenu">
+        <div class="collapsibleMenu__head">
+            <img src="./public/img/logo.png" alt="Logo Ogani">
+            <button id="menuBtn-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="collapsibleMenu__shop">
+            <button>
+                <i class="fa-solid fa-heart"></i>
+                <span>0</span>
+            </button>
+            <button>
+                <i class="fa-solid fa-bag-shopping"></i>
+                <span>0</span>
+            </button>
+            <p>item: <span>$0</span> </p>
+        </div>
+        <nav class="collapsibleMenu__nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a id="pagesBtn">Pages<i class="fa-solid fa-chevron-right"></i></a></li>
+                <div id="pagesMenu">
+                    <li><a href="#">Shop Details</a></li>
+                    <li><a href="#">Shopping Cart</a></li>
+                    <li><a href="#">Check Out</a></li>
+                    <li><a href="#">Block Details</a></li>
+                </div>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <ul class="collapsibleMenu__redes">
+            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+        </ul>
+        <div class="collapsibleMenu__contact">
+            <div>
+                <i class="fa-solid fa-envelope"></i>
+                <p>hello@colorlib.com</p>
+            </div>
+            <p>Free Shipping for all Order of $99</p>
+        </div>
+    </div>
+    
+    <script src="./public/js/main.js"></script>
+
 </body>
 </html>
