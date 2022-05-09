@@ -2,6 +2,7 @@
     --main-black: rgb(28, 28, 28);
     --whitesmoke: rgb(245, 245, 245);
     --green: rgb(127, 173, 57);
+    --grey: #6F6F6F; 
 }
 
 body {
@@ -15,6 +16,7 @@ body {
     background-color: var(--main-black);
     visibility: hidden;
     opacity: 0;
+    z-index: 1;
     transition: all 0.6s ease-in;
 }
 
@@ -46,11 +48,14 @@ header {
 }
 
 .header__shop, .collapsibleMenu__shop {
-    padding-bottom: 2rem;
     display: flex;
     align-items: center;
     gap: 2.5rem;
     font-size: 1.4;
+}
+
+.collapsibleMenu__shop {
+    padding-bottom: 2rem;
 }
 
 .header__shop i, .collapsibleMenu__shop i {
@@ -82,9 +87,10 @@ header {
 .collapsibleMenu {
     position: absolute;
     top: 0;
-    bottom: 0;
+    height: auto;
     width: 30rem;
     padding: 5rem 3rem;
+    z-index: 2;
     background-color: white;
     transition-duration: 0.6s;
 }
@@ -172,4 +178,148 @@ header {
     display: flex;
     align-items: center;
     gap: 1rem;
+}
+
+main {
+    padding: 0 2rem 5rem;
+}
+
+main .hero {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    row-gap: 3rem;
+}
+
+main .hero__departamentsMenu {
+    grid-column: 1 / 13;
+}
+
+main .hero__departamentsMenu button {
+    position: relative;
+    width: 100%;
+    padding: 0.8rem 3rem;
+    text-align: start;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    background-color: var(--green);
+}
+
+main .hero__departamentsMenu button .fa-bars {
+    padding-right: 1.5rem;
+}
+
+main .hero__departamentsMenu button #departamentsArrow {
+    position: absolute;
+    top: calc(50% - 13px/2);
+    right: 3rem;
+    font-size: 1.4rem;
+}
+
+main .hero__departamentsMenu ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    border: 0.1rem solid rgba(28, 28, 28, 0.1);
+    border-top: none;
+}
+
+main .hero__departamentsMenu ul li {
+    padding: 1rem 3rem;
+}
+
+main .hero__departamentsMenu ul li:hover {
+    background-color: rgba(28, 28, 28, 0.1);
+}
+
+main .hero__principal {
+    grid-column: 1 / 13;
+}
+
+main .hero__principalSearch {
+    display: flex;
+    width: 100%;
+}
+
+main .hero__principalSearch input {
+    padding: 0.8rem 0;
+    text-align: center;
+    border: 0.1rem solid rgba(28, 28, 28, 0.1);
+    flex-grow: 1;
+}
+
+main .hero__principalSearch button {
+    padding: 0 3rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: white;
+    text-transform: uppercase;
+    background-color: var(--green);
+}
+
+main .hero__principalSupport {
+    padding: 3rem 0;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+main .hero__principalSupport .fa-phone {
+    padding: 1.5rem;
+    border-radius: 50%;
+    color: var(--green);
+    background-color: var(--whitesmoke);
+}
+
+main .hero__principalSupport p {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+main .hero__principalSupport span {
+    font-size: 1.4rem;
+    color: var(--grey);
+}
+
+main .hero__principalImage {
+    height: 43rem;
+    background-image: url("../img/hero/banner.jpg");
+    background-size: cover;
+    background-position: top center;
+    padding-left: 7.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+main .hero__principalImage span {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.4rem;
+    text-transform: uppercase;
+    color: var(--green);
+}
+
+main .hero__principalImage h2 {
+    font-size: 4.6rem;
+    font-weight: 700;
+    line-height: 5.2rem;
+}
+
+main .hero__principalImage p {
+    margin-bottom: 1.5rem;
+    color: var(--grey);
+}
+
+main .hero__principalImage button {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    width: fit-content;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: white;
+    background-color: var(--green);
+    letter-spacing: 0.2rem;
 }
