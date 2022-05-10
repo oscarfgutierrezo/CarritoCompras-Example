@@ -1,7 +1,8 @@
 :root {
     --main-black: rgb(28, 28, 28);
-    --whitesmoke: rgb(245, 245, 245);
+    --whitesmoke: #f5f5f5;
     --green: rgb(127, 173, 57);
+    --dark-green: rgb(102, 139, 45);
     --grey: #6F6F6F; 
 }
 
@@ -205,6 +206,11 @@ main .hero__departamentsMenu button {
     background-color: var(--green);
 }
 
+main .hero__departamentsMenu button:hover {
+    background-color: var(--dark-green);
+    transition-duration: 0.4s;
+}
+
 main .hero__departamentsMenu button .fa-bars {
     padding-right: 1.5rem;
 }
@@ -236,25 +242,32 @@ main .hero__principal {
     grid-column: 1 / 13;
 }
 
-main .hero__principalSearch {
+main .hero__principalSearch, footer .footerInfo__subscribe form {
     display: flex;
     width: 100%;
 }
 
-main .hero__principalSearch input {
-    padding: 0.8rem 0;
-    text-align: center;
+main .hero__principalSearch input, footer .footerInfo__subscribe form input {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    background-color: white;
     border: 0.1rem solid rgba(28, 28, 28, 0.1);
     flex-grow: 1;
 }
 
-main .hero__principalSearch button {
-    padding: 0 3rem;
+main .hero__principalSearch button, footer .footerInfo__subscribe form button {
+    padding: 0 2rem;
     font-size: 1.4rem;
     font-weight: 800;
     color: white;
     text-transform: uppercase;
+    letter-spacing: 0.2rem;
     background-color: var(--green);
+}
+
+main .hero__principalSearch button:hover {
+    background-color: var(--dark-green);
+    transition-duration: 0.4s;
 }
 
 main .hero__principalSupport {
@@ -322,4 +335,145 @@ main .hero__principalImage button {
     color: white;
     background-color: var(--green);
     letter-spacing: 0.2rem;
+}
+
+main .hero__principalImage button:hover {
+    background-color: var(--dark-green);
+    transition-duration: 0.4s;
+}
+
+main .featured {
+    padding: 5rem 0 0;
+}
+
+main .featured__title {
+    position: relative;
+    text-align: center;
+    font-size: 3.6rem;
+    font-weight: 800;
+}
+
+main .featured__title::after{
+    content: "";
+    position: absolute;
+    bottom: -2.7rem;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 8rem;
+    height: 0.4rem;
+    background-color: var(--green);
+}
+
+main .featured__categories {
+    padding: 6rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 3rem;
+    row-gap: 1rem;
+    font-size: 1.8rem;
+    
+}
+
+main .featured__categories button:hover {
+    color: var(--green);
+    transition-duration: 0.3s;
+}
+
+main .featured__products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 3rem;
+    row-gap: 3rem;
+}
+
+main .featured__products .productCard__image {
+    position: relative;
+    height: 27rem;
+    max-width: 29rem;
+    overflow: hidden;
+}
+
+main .featured__products .productCard__image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+main .featured__products .productCard__image:hover > ul {
+    bottom: 1.5rem;
+}
+
+main .featured__products .productCard__image ul {
+    position: absolute;
+    bottom: -5rem;
+    right: calc(50% - 5rem);
+    display: flex;
+    gap: 2rem;
+    transition-duration: 0.5s;
+}
+
+main .featured__products .productCard__image li {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    background-color: white;
+    border: 0.1rem solid #EBEBEB;
+    border-radius: 50%;
+    transition-duration: 0.4s;
+}
+
+main .featured__products .productCard__image li:hover {
+    color: white;
+    background-color: var(--green);
+    animation: rotation 0.4s ease-in;
+}
+
+@keyframes rotation {
+    100% {transform: rotate(360deg);}
+}
+
+main .featured__products .productCard__info {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.8rem;
+}
+
+main .featured__products .productCard__info span {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+footer {
+    padding: 5rem 2rem;
+    background-color: #F3F6FA;
+}
+
+footer .footerInfo__contact div {
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+footer h3 {
+    padding-bottom: 1.5rem;
+    font-weight: 800;
+}
+
+footer .footerInfo__links ul {
+    width: 49%;
+    display: inline-block;
+    font-size: 1.4rem;
+}
+
+footer .footerInfo__links li {
+    padding-bottom: 0.5rem;
 }
