@@ -1,0 +1,17 @@
+header, main, footer .footerContainer {
+    max-width: 768px;
+}
+
+main .hero__principalSearch {
+    width: 69%;
+}
+
+main .hero__principalSupport {
+    width: 30%;
+    padding-top: 0;
+    justify-content: end;
+}
+
+main .hero__principalImage {
+    margin-bottom: 1rem;
+}

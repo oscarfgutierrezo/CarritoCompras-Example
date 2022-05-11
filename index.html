@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="./public/css/normalize.css">
     <link rel="stylesheet" href="./public/css/mobile.css">
+    <link rel="stylesheet" href="./public/css/mobile-l.css" media="(min-width: 640px">
+    <link rel="stylesheet" href="./public/css/tablet.css" media="(min-width: 768px">
+    <link rel="stylesheet" href="./public/css/laptop.css" media="(min-width: 1024px">
 </head>
 <body>
     <div id="overlay"></div>
@@ -18,6 +21,13 @@
         <button class="header__menuBtn" id="menuBtn-open">
             <i class="fa-solid fa-bars"></i>
         </button>
+        <ul class="header__menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a id="pagesBtn">Pages</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
         <div class="header__shop">
             <button>
                 <i class="fa-solid fa-heart"></i>
@@ -111,7 +121,7 @@
                 </div>
                 <div class="hero__principalImage">
                     <span>Fruit Fresh</span>
-                    <h2>Vegetable 100% Organic</h2>
+                    <h2>Vegetable <br> 100% Organic</h2>
                     <p>Free Pickup and Delivery Available</p>
                     <button>Shop Now</button>
                 </div>
@@ -142,7 +152,7 @@
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-02.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-02.png" alt="Apples">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
@@ -155,7 +165,7 @@
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-03.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-03.png" alt="Watermelon">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
@@ -168,7 +178,7 @@
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-04.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-04.png" alt="Lettuce">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
@@ -181,20 +191,20 @@
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-05.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-05.png" alt="Tomatoes">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Lettuce / 1 Kg</h3>
+                        <h3>Tomatoes / 1 Kg</h3>
                         <span>$2.50</span>
                     </div>
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-06.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-06.png" alt="Red Onion">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
@@ -207,7 +217,7 @@
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-07.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-07.png" alt="Beef">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
@@ -220,20 +230,7 @@
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-08.png" alt="Manzanas">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Pork Meat / 500 Grs</h3>
-                        <span>$5.00</span>
-                    </div>
-                </div>
-                <div class="productCard">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-09.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-08.png" alt="Chicken">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
@@ -246,7 +243,20 @@
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-10.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-09.png" alt="Pork Meat">
+                        <ul>
+                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
+                        </ul>
+                    </div>
+                    <div class="productCard__info">
+                        <h3>Pork Meat / 500 Grs</h3>
+                        <span>$5.00</span>
+                    </div>
+                </div>
+                <div class="productCard">
+                    <div class="productCard__image">
+                        <img src="./public/img/product/Product-10.png" alt="Milk">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
@@ -259,7 +269,7 @@
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-11.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-11.png" alt="Mozarella Cheese">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
@@ -272,7 +282,7 @@
                 </div>
                 <div class="productCard">
                     <div class="productCard__image">
-                        <img src="./public/img/product/Product-12.png" alt="Manzanas">
+                        <img src="./public/img/product/Product-12.png" alt="Eggs">
                         <ul>
                             <li><button><i class="fa-solid fa-heart"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
@@ -287,52 +297,54 @@
         </section>
     </main>
     <footer>
-        <div class="footerInfo">
-            <div class="footerInfo__contact">
-                <img src="./public/img/logo.png" alt="Logo Ogani">
-                <div>
-                    <p>Address: 60-49 Road 11378 New York</p>
-                    <p>Phone: +65 11.188.888</p>
-                    <p>Email: hello@colorlib.com</p>
+        <div class="footerContainer">
+            <div class="footerInfo">
+                <div class="footerInfo__contact">
+                    <img src="./public/img/logo.png" alt="Logo Ogani">
+                    <div>
+                        <p>Address: 60-49 Road 11378 New York</p>
+                        <p>Phone: +65 11.188.888</p>
+                        <p>Email: hello@colorlib.com</p>
+                    </div>
+                </div>
+                <div class="footerInfo__links">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">About Our Shop</a></li>
+                        <li><a href="#">Secure Shopping</a></li>
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Our Sitemap</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">Who We Are</a></li>
+                        <li><a href="#">Our Services</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Innovation</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footerInfo__subscribe">
+                    <h3>Join Our Newsletter Now</h3>
+                    <p>Get E-mail updates about our latest shop and special offers.</p>
+                    <form>
+                        <input type="text" placeholder="Enter your mail">
+                        <button>Subscribe</button>
+                    </form>
+                    <ul>
+                        <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footerInfo__links">
-                <h3>Useful Links</h3>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">About Our Shop</a></li>
-                    <li><a href="#">Secure Shopping</a></li>
-                    <li><a href="#">Delivery Information</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Our Sitemap</a></li>
-                </ul>
-                <ul>
-                    <li><a href="#">Who We Are</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Innovation</a></li>
-                    <li><a href="#">Testimonials</a></li>
-                </ul>
+            <div class="footer__copyright">
+                <p>Copyright ©2022 All rights reserved.</p>
+                <img src="./public/img/payment-item.png" alt="Logos Métodos de Pago">
             </div>
-            <div class="footerInfo__subscribe">
-                <h3>Join Our Newsletter Now</h3>
-                <p>Get E-mail updates about our latest shop and special offers.</p>
-                <form>
-                    <input type="text" placeholder="Enter your mail">
-                    <button>Subscribe</button>
-                </form>
-                <ul>
-                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer__copyright">
-            <p>Copyright ©2022 All rights reserved.</p>
-            <img src="./public/img/payment-item.png" alt="Logos Métodos de Pago">
         </div>
     </footer>
     

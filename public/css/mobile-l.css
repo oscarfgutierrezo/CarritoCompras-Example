@@ -1,0 +1,18 @@
+header, main, footer .footerContainer {
+    max-width: 640px;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+main .hero__principalSearch, footer .footerInfo__subscribe form {
+    flex-direction: row;
+}
+
+footer .footerInfo__contact {
+    grid-column: 1 / 7;
+}
+
+footer .footerInfo__links {
+    grid-column: 8 / 13;
+}
+

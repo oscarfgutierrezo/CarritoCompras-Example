@@ -1,0 +1,43 @@
+header, main, footer .footerContainer {
+    max-width: 1400px;
+}
+
+.header__menuBtn {
+    display: none;
+}
+
+.header__logo {
+    grid-column: 1 / 2;
+}
+
+.header__menu {
+    grid-column: 2 / 4;
+    display: flex;
+}
+
+.header__shop {
+    grid-column: 4 / 5;
+    justify-self: end;
+}
+
+main .hero__departamentsMenu {
+    grid-column: 1 / 4;
+}
+
+main .hero__principal {
+    grid-column: 4 / 13;
+    margin-left: 3rem;
+}
+
+footer .footerInfo__contact {
+    grid-column: 1 / 4;
+}
+
+footer .footerInfo__links {
+    grid-column: 4 / 8;
+    margin-left: 10%;
+}
+
+footer .footerInfo__subscribe {
+    grid-column: 8 / 13;
+}
