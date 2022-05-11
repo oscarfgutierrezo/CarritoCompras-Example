@@ -86,13 +86,14 @@ header {
 }
 
 .collapsibleMenu {
-    position: absolute;
+    position: fixed;
     top: 0;
-    height: auto;
+    height: 100vh;
     width: 30rem;
     padding: 5rem 3rem;
     z-index: 2;
     background-color: white;
+    overflow-y: scroll;
     transition-duration: 0.6s;
 }
 
@@ -244,10 +245,12 @@ main .hero__principal {
 
 main .hero__principalSearch, footer .footerInfo__subscribe form {
     display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
 main .hero__principalSearch input, footer .footerInfo__subscribe form input {
+    height: 5rem;
     padding: 0.8rem 1rem;
     text-align: left;
     background-color: white;
@@ -256,6 +259,7 @@ main .hero__principalSearch input, footer .footerInfo__subscribe form input {
 }
 
 main .hero__principalSearch button, footer .footerInfo__subscribe form button {
+    height: 5rem;
     padding: 0 2rem;
     font-size: 1.4rem;
     font-weight: 800;
@@ -265,7 +269,7 @@ main .hero__principalSearch button, footer .footerInfo__subscribe form button {
     background-color: var(--green);
 }
 
-main .hero__principalSearch button:hover {
+main .hero__principalSearch button:hover, footer .footerInfo__subscribe form button:hover {
     background-color: var(--dark-green);
     transition-duration: 0.4s;
 }
@@ -366,7 +370,7 @@ main .featured__title::after{
 }
 
 main .featured__categories {
-    padding: 6rem 0;
+    padding: 5rem 0 3rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -468,6 +472,21 @@ footer h3 {
     font-weight: 800;
 }
 
+footer .footerInfo {
+    padding-bottom: 4rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 4rem;
+}
+
+footer .footerInfo__contact {
+    grid-column: 1 / 4;
+}
+
+footer .footerInfo__links {
+    grid-column: 1 / 4;
+}
+
 footer .footerInfo__links ul {
     width: 49%;
     display: inline-block;
@@ -476,4 +495,49 @@ footer .footerInfo__links ul {
 
 footer .footerInfo__links li {
     padding-bottom: 0.5rem;
+}
+
+footer .footerInfo__subscribe {
+    grid-column: 1 / 4;
+}
+
+footer .footerInfo__subscribe p {
+    padding-bottom: 2rem;
+    font-size: 1.4rem;
+}
+
+footer .footerInfo__subscribe ul {
+    padding-top: 2rem;
+    display: flex;
+    gap: 2rem;
+}
+
+footer .footerInfo__subscribe li {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 0.1rem solid #EBEBEB;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease-in
+}
+
+footer .footerInfo__subscribe li:hover {
+    font-size: 1.8rem;
+    color: white;
+    background-color: var(--green);
+}
+
+footer .footer__copyright {
+    padding-top: 2rem;
+    border-top: 0.1rem solid #EBEBEB;
+}
+
+footer .footer__copyright p {
+    padding-bottom: 2rem;
+    text-align: center;
+    color:var(--grey);
 }
