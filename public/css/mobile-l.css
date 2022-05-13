@@ -4,6 +4,10 @@ header, main, footer .footerContainer {
     padding-right: 4rem;
 }
 
+.header__shopContainer--likes, .header__shopContainer--cart {
+    width: 40rem;
+}
+
 main .hero__principalSearch, footer .footerInfo__subscribe form {
     flex-direction: row;
 }

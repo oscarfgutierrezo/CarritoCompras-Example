@@ -10,7 +10,7 @@ body {
     position: relative;
 }
 
-#overlay {
+#overlay01, #overlay02 {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -18,10 +18,11 @@ body {
     visibility: hidden;
     opacity: 0;
     z-index: 1;
-    transition: all 0.6s ease-in;
+    transition: all 0.4s ease-in;
 }
 
 header {
+    position: relative;
     width: 100%;
     margin: 0 auto;
     padding: 5rem 2rem;
@@ -76,20 +77,12 @@ header {
     font-size: 1.4;
 }
 
-.collapsibleMenu__shop {
-    padding-bottom: 2rem;
-}
-
-.header__shop i, .collapsibleMenu__shop i {
-    font-size: 2rem;
-}
-
-.header__shop span, .collapsibleMenu__shop span {
-    font-weight: 700;
-}
-
 .header__shop button, .collapsibleMenu__shop button {
     position: relative;
+}
+
+.header__shop button i, .collapsibleMenu__shop button i {
+    font-size: 2rem;
 }
 
 .header__shop button span, .collapsibleMenu__shop button span {
@@ -100,10 +93,67 @@ header {
     height: 1.6rem;
     text-align: center;
     font-size: 1.2rem;
+    font-weight: 700;
     line-height: 1.6rem;
     color: white;
     background: #7fad39;
     border-radius: 50%;
+}
+
+.header__shopContainer--likes, .header__shopContainer--cart {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    top: 16rem;
+    width: 28rem;
+    max-height: 0;
+    background-color: white;
+    opacity: 0;
+    overflow-y: scroll;
+    z-index: 2;
+    transition: all 0.4s ease-out;
+}
+
+.header__shopContainer--likes table, .header__shopContainer--cart table {
+    width: 100%;
+    text-align: left;
+}
+
+.header__shopContainer--likes th, .header__shopContainer--likes td, .header__shopContainer--cart th, .header__shopContainer--cart td {
+    padding: 1.2rem 0.7rem;
+    vertical-align:middle;
+    border-bottom: 0.1rem solid rgba(111, 111, 111, 0.3);
+}
+
+.header__shopContainer--cart span {
+    font-weight: 700;
+}
+
+.header__shopContainer--likes .deleteProduct, .header__shopContainer--cart .deleteProduct{
+    color: red;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.header__shopContainer--likes button, .header__shopContainer--cart button {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 0.3rem 2.5rem;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    background-color: var(--green);
+    transition: all 0.3s ease-in;
+}
+
+.header__shopContainer--likes button:hover, .header__shopContainer--cart button:hover {
+    background-color: var(--dark-green);
+}
+
+.header #totalPrice01, .collapsibleMenu__shop #totalPrice02 {
+    font-weight: 700;
 }
 
 .collapsibleMenu {
@@ -115,7 +165,7 @@ header {
     z-index: 2;
     background-color: white;
     overflow-y: scroll;
-    transition-duration: 0.6s;
+    transition-duration: 0.4s;
 }
 
 .hidden {
@@ -148,6 +198,10 @@ header {
 
 .collapsibleMenu__head button:hover {
     font-size: 3.5rem;
+}
+
+.collapsibleMenu__shop {
+    padding-bottom: 2rem;
 }
 
 .collapsibleMenu__nav {
@@ -421,13 +475,14 @@ main .featured__products {
 main .featured__products .productCard__image {
     position: relative;
     height: 27rem;
-    max-width: 29rem;
+    width: 28rem;
+    background-color: #f2f6fb;
     overflow: hidden;
 }
 
 main .featured__products .productCard__image img {
-    height: 100%;
     object-fit: cover;
+    margin: 1rem auto 0;
 }
 
 main .featured__products .productCard__image:hover > ul {
@@ -453,6 +508,7 @@ main .featured__products .productCard__image li {
     background-color: white;
     border: 0.1rem solid #EBEBEB;
     border-radius: 50%;
+    cursor: pointer;
     transition-duration: 0.4s;
 }
 
@@ -476,7 +532,7 @@ main .featured__products .productCard__info {
 }
 
 main .featured__products .productCard__info span {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
 }
 

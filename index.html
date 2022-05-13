@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="./public/css/laptop.css" media="(min-width: 1024px">
 </head>
 <body>
-    <div id="overlay"></div>
+    <div id="overlay01"></div>
+    <div id="overlay02"></div>
     <header class="header">
         <a class="header__logo" href="#">
             <img src="./public/img/logo.png" alt="Logo Ogani">
@@ -24,20 +25,48 @@
         <ul class="header__menu">
             <li><a href="#">Home</a></li>
             <li><a href="#">Shop</a></li>
-            <li><a id="pagesBtn">Pages</a></li>
+            <li><a href="#">Pages</a></li>
             <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
         <div class="header__shop">
-            <button>
+            <button id="showFavoritesBtn">
                 <i class="fa-solid fa-heart"></i>
-                <span>0</span>
+                <span id="likesIndicator">0</span>
             </button>
-            <button>
+            <div class="header__shopContainer--likes">
+                <table id="likesTable">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <button id="emptyLikesBtn">Empty Favorites</button>
+            </div>
+            <button id="showCartBtn">
                 <i class="fa-solid fa-bag-shopping"></i>
-                <span>0</span>
+                <span id="cartIndicator">0</span>
             </button>
-            <p>item: <span>$0</span> </p>
+            <div class="header__shopContainer--cart">
+                <table id="cartTable">
+                    <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <button id="emptyCartBtn">Empty Cart</button>
+            </div>
+            <p>Total: <span id="totalPrice01">0 USD</span> </p>
         </div>
     </header>
     <div class="collapsibleMenu hidden" id="collapsibleMenu">
@@ -50,13 +79,13 @@
         <div class="collapsibleMenu__shop">
             <button>
                 <i class="fa-solid fa-heart"></i>
-                <span>0</span>
+                <span id="likesIndicator02">0</span>
             </button>
             <button>
                 <i class="fa-solid fa-bag-shopping"></i>
-                <span>0</span>
+                <span id="cartIndicator02">0</span>
             </button>
-            <p>item: <span>$0</span> </p>
+            <p>Total: <span id="totalPrice02">0 USD</span> </p>
         </div>
         <nav class="collapsibleMenu__nav">
             <ul>
@@ -130,167 +159,167 @@
         <section class="featured">
             <h2 class="featured__title">Feature Product</h2>
             <ul class="featured__categories">
-                <li><button>All</button></li>
+                <li><button id="allFilter">All</button></li>
                 <li><button>Fruits</button></li>
                 <li><button>Vegetables</button></li>
                 <li><button>Fresh Meat</button></li>
                 <li><button>Dairy and Eggs</button></li>
             </ul>
-            <div class="featured__products">
-                <div class="productCard">
+            <div class="featured__products" id="products">
+                <div class="productCard" data-id="fruit">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-01.png" alt="Bananas">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="1"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Bananas / 1Kg</h3>
-                        <span>$2.00</span>
+                        <h3>Bananas (1 Kg)</h3>
+                        <span>2.00 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="fruit">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-02.png" alt="Apples">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="2"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Apples / 1Kg</h3>
-                        <span>$3.00</span>
+                        <h3>Apples (1 Kg)</h3>
+                        <span>3.00 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="fruit">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-03.png" alt="Watermelon">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="3"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Watermelon / 1Kg</h3>
-                        <span>$4.00</span>
+                        <h3>Watermelon (1 Kg)</h3>
+                        <span>4.00 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="vegetable">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-04.png" alt="Lettuce">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="4"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Lettuce / 300 Grs</h3>
-                        <span>$1.00</span>
+                        <h3>Lettuce (300 Grs)</h3>
+                        <span>1.00 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="vegetable">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-05.png" alt="Tomatoes">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="5"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Tomatoes / 1 Kg</h3>
-                        <span>$2.50</span>
+                        <h3>Tomatoes (1 Kg)</h3>
+                        <span>2.50 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="vegetable">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-06.png" alt="Red Onion">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="6"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Red Onion / 500 Grs</h3>
-                        <span>$1.50</span>
+                        <h3>Red Onion (500 Grs)</h3>
+                        <span>1.50 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="meat">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-07.png" alt="Beef">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="7"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Beef / 500 Grs</h3>
-                        <span>$4.50</span>
+                        <h3>Beef (500 Grs)</h3>
+                        <span>4.50 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="meat">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-08.png" alt="Chicken">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="8"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Chicken / 500 Grs</h3>
-                        <span>$4.50</span>
+                        <h3>Chicken (500 Grs)</h3>
+                        <span>4.50 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="meat">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-09.png" alt="Pork Meat">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="9"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Pork Meat / 500 Grs</h3>
-                        <span>$5.00</span>
+                        <h3>Pork Meat (500 Grs)</h3>
+                        <span>5.00 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="dairy">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-10.png" alt="Milk">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="10"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Milk / 1 Lt</h3>
-                        <span>$1.50</span>
+                        <h3>Milk (1 Lt)</h3>
+                        <span>1.50 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="dairy">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-11.png" alt="Mozarella Cheese">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="11"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Mozarella Cheese / 250 Grs</h3>
-                        <span>$2.50</span>
+                        <h3>Mozarella Cheese (250 Grs)</h3>
+                        <span>2.50 USD</span>
                     </div>
                 </div>
-                <div class="productCard">
+                <div class="productCard" data-id="dairy">
                     <div class="productCard__image">
                         <img src="./public/img/product/Product-12.png" alt="Eggs">
                         <ul>
-                            <li><button><i class="fa-solid fa-heart"></i></button></li>
+                            <li><button><i class="fa-solid fa-heart" data-id="12"></i></button></li>
                             <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
                         </ul>
                     </div>
                     <div class="productCard__info">
-                        <h3>Eggs / 30 Units</h3>
-                        <span>$4.50</span>
+                        <h3>Eggs (30 Units)</h3>
+                        <span>4.50 USD</span>
                     </div>
                 </div>
             </div>
@@ -348,7 +377,8 @@
         </div>
     </footer>
     
-    <script src="./public/js/main.js"></script>
+    <script src="./public/js/shop.js"></script>
+    <script src="./public/js/filters.js"></script>
 
 </body>
 </html>
