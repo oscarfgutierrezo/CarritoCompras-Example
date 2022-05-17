@@ -95,9 +95,9 @@ function filterStyle() {
     const filters = document.querySelectorAll(".filter");
     filters.forEach( filter => {
         if (filter.dataset.filter === productsContainerDOM.dataset.categorie) {
-            filter.classList.add("categorieSelectorActive")
+            filter.classList.add("categorieFilterActive")
         } else {
-            filter.classList.remove("categorieSelectorActive")
+            filter.classList.remove("categorieFilterActive")
         }
     })
 }
