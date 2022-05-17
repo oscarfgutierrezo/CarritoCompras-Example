@@ -66,7 +66,7 @@
                 </table>
                 <button id="emptyCartBtn">Empty Cart</button>
             </div>
-            <p>Total: <span id="totalPrice01">0 USD</span> </p>
+            <p>Total: <span id="totalPrice01">0.00 USD</span> </p>
         </div>
     </header>
     <div class="collapsibleMenu hidden" id="collapsibleMenu">
@@ -85,7 +85,7 @@
                 <i class="fa-solid fa-bag-shopping"></i>
                 <span id="cartIndicator02">0</span>
             </button>
-            <p>Total: <span id="totalPrice02">0 USD</span> </p>
+            <p>Total: <span id="totalPrice02">0.00 USD</span> </p>
         </div>
         <nav class="collapsibleMenu__nav">
             <ul>
@@ -159,170 +159,13 @@
         <section class="featured">
             <h2 class="featured__title">Feature Product</h2>
             <ul class="featured__categories">
-                <li><button id="allFilter">All</button></li>
-                <li><button>Fruits</button></li>
-                <li><button>Vegetables</button></li>
-                <li><button>Fresh Meat</button></li>
-                <li><button>Dairy and Eggs</button></li>
+                <li><button id="allFilter" class="filter" data-filter="all">All</button></li>
+                <li><button id="fruitFilter" class="filter" data-filter="fruit">Fruits</button></li>
+                <li><button id="vegetableFilter" class="filter" data-filter="vegetable">Vegetables</button></li>
+                <li><button id="meatFilter" class="filter" data-filter="meat">Fresh Meat</button></li>
+                <li><button id="dairyFilter" class="filter" data-filter="dairy">Dairy and Eggs</button></li>
             </ul>
-            <div class="featured__products" id="products">
-                <div class="productCard" data-id="fruit">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-01.png" alt="Bananas">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="1"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Bananas (1 Kg)</h3>
-                        <span>2.00 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="fruit">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-02.png" alt="Apples">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="2"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Apples (1 Kg)</h3>
-                        <span>3.00 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="fruit">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-03.png" alt="Watermelon">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="3"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Watermelon (1 Kg)</h3>
-                        <span>4.00 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="vegetable">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-04.png" alt="Lettuce">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="4"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Lettuce (300 Grs)</h3>
-                        <span>1.00 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="vegetable">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-05.png" alt="Tomatoes">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="5"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Tomatoes (1 Kg)</h3>
-                        <span>2.50 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="vegetable">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-06.png" alt="Red Onion">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="6"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Red Onion (500 Grs)</h3>
-                        <span>1.50 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="meat">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-07.png" alt="Beef">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="7"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Beef (500 Grs)</h3>
-                        <span>4.50 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="meat">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-08.png" alt="Chicken">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="8"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Chicken (500 Grs)</h3>
-                        <span>4.50 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="meat">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-09.png" alt="Pork Meat">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="9"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Pork Meat (500 Grs)</h3>
-                        <span>5.00 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="dairy">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-10.png" alt="Milk">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="10"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Milk (1 Lt)</h3>
-                        <span>1.50 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="dairy">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-11.png" alt="Mozarella Cheese">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="11"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Mozarella Cheese (250 Grs)</h3>
-                        <span>2.50 USD</span>
-                    </div>
-                </div>
-                <div class="productCard" data-id="dairy">
-                    <div class="productCard__image">
-                        <img src="./public/img/product/Product-12.png" alt="Eggs">
-                        <ul>
-                            <li><button><i class="fa-solid fa-heart" data-id="12"></i></button></li>
-                            <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                        </ul>
-                    </div>
-                    <div class="productCard__info">
-                        <h3>Eggs (30 Units)</h3>
-                        <span>4.50 USD</span>
-                    </div>
-                </div>
-            </div>
+            <div class="featured__products" id="productsContainer"></div>
         </section>
     </main>
     <footer>
@@ -377,8 +220,10 @@
         </div>
     </footer>
     
-    <script src="./public/js/shop.js"></script>
+    <script src="./public/js/data.js"></script>
     <script src="./public/js/filters.js"></script>
+    <script src="./public/js/shop.js"></script>
+    
 
 </body>
 </html>

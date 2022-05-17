@@ -1,4 +1,5 @@
-// NAVBAR COLLAPSIBLE
+// NAVBAR COLAPSABLE
+
 const menuBtnOpen = document.querySelector("#menuBtn-open");
 const menuBtnClose = document.querySelector("#menuBtn-close");
 const collapsibleMenu = document.querySelector("#collapsibleMenu");
@@ -18,7 +19,7 @@ menuBtnClose.addEventListener("click", () => {
 
 
 
-// MENU COLLAPSIBLE - PAGES
+// MENU PAGES COLAPSABLE
 
 const pagesBtn = document.querySelector("#pagesBtn");
 const pagesMenu = document.querySelector("#pagesMenu");
@@ -38,7 +39,7 @@ pagesBtn.addEventListener("click", () => {
 
 
 
-// MENU COLLAPSIBLE - DEPARTAMENTS
+// MENU DEPARTAMENTS COLAPSABLE
 
 const departamentsBtn = document.querySelector("#departamentsBtn");
 const departamentsMenu = document.querySelector("#departamentsMenu");
@@ -58,9 +59,11 @@ departamentsBtn.addEventListener("click", () => {
 
 
 
-// CARRITO DE FAVORITOS Y COMPRAS
+// CARRITO DE FAVORITOS
 
-    // Collapse Container Favoritos
+let likeListProducts = [];
+
+    // Mostrar el contenedor 
 
 const showFavoritesBtn = document.querySelector("#showFavoritesBtn");
 const likesContainer = document.querySelector(".header__shopContainer--likes");
@@ -82,7 +85,95 @@ overlay02.addEventListener("click", () => {
     overlay02.style.opacity = "0";
 })
 
-    // Collapse Container Cart
+    // Detectar click en botón de agregar a favoritos
+
+productsContainerDOM.addEventListener ("click", (evt) => {
+    if (evt.target.classList.contains("fa-heart")) {
+        const likeBtnId = evt.target.getAttribute("data-id")
+        addLikeProduct (likeBtnId);
+    };
+})
+
+    //Agregar productos al arreglo
+
+function addLikeProduct (likeBtnId) {
+    const likeProduct = products.filter(product => product.id === likeBtnId)
+    const existe = likeListProducts.some (product => product.id === likeBtnId)
+    if (existe) {
+        likeListProducts = [...likeListProducts]
+    } else {
+        likeListProducts = [...likeListProducts, ...likeProduct];
+    }
+    likeProductsHTML();
+}
+
+    // Crear HTML con la información del arreglo e imprimirla en el contenedor HTML
+
+const likesTable = document.querySelector("#likesTable tbody");
+
+function likeProductsHTML () {
+    cleanLikeProductsHTML();
+    likeListProducts.forEach( product => {
+        const {name, measurementUnit, price, currency, image, id} = product;
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>
+                <img src="${image}" width=100>
+            </td>
+            <td>${name} / ${measurementUnit}</td>
+            <td>${price.toFixed(2)} ${currency}</td>
+            <td>
+                <a href="#" class="deleteProduct" data-id="${id}"> X </a>
+            </td>
+        `;
+
+        likesTable.appendChild(row)
+        updateLikesNumber()
+    })
+}
+
+function cleanLikeProductsHTML () {
+    while (likesTable.firstChild) {
+        likesTable.removeChild(likesTable.firstChild)
+    }
+};
+
+    // Eliminar productos
+
+likesContainer.addEventListener("click", eliminarLike);
+
+function eliminarLike (evt) {
+    if (evt.target.classList.contains("deleteProduct")) {
+        const productId = evt.target.getAttribute("data-id");
+        likeListProducts = likeListProducts.filter(product => product.id !== productId);
+    }
+    likeProductsHTML();
+    updateLikesNumber();
+};
+
+    // Vaciar el carrito
+
+const emptyLikes = document.querySelector("#emptyLikesBtn");
+
+emptyLikes.addEventListener ("click", () => {
+    likeListProducts = [];
+})
+
+    // Indicar la cantidad de favoritos
+
+function updateLikesNumber () {
+    const likesIndicator = document.querySelector("#likesIndicator")
+    const likesIndicator02 = document.querySelector("#likesIndicator02");
+    likesIndicator.textContent = likeListProducts.length;
+    likesIndicator02.textContent = likeListProducts.length;
+}
+
+
+// CARRITO DE COMPRAS
+
+let shopListProducts = [];
+
+    // Mostrar el contenedor de compras
 
 const showCartBtn = document.querySelector("#showCartBtn");
 const cartContainer = document.querySelector(".header__shopContainer--cart");
@@ -103,215 +194,109 @@ overlay02.addEventListener("click", () => {
     overlay02.style.opacity = "0";
 })
 
-    // Detectar el click en el botón de agregar a Favoritos o agregar a Carrito
+    // Detectar click en botón de agregar a carrito
 
-const products = document.querySelector("#products")
-
-products.addEventListener("click", addFavorite)
-function addFavorite (evt) {
-    evt.preventDefault();
-    if (evt.target.classList.contains("fa-heart")) {
-        const selectProduct = evt.target.parentElement.parentElement.parentElement.parentElement.parentElement;
-        readLikeProductInfo (selectProduct);
-    }
+productsContainerDOM.addEventListener ("click", (evt) => {
     if (evt.target.classList.contains("fa-bag-shopping")) {
-        const selectProduct = evt.target.parentElement.parentElement.parentElement.parentElement.parentElement;
-        readCartProductInfo (selectProduct);
-    }
-}
-
-    // Crear objeto con info del producto y verificar si el producto ya existe en el arreglo likeProducts
-
-let likeProducts = [];
-
-function readLikeProductInfo (product) {
-    const infoLikeProduct = {
-        image: product.querySelector("img").src,
-        name: product.querySelector("h3").textContent,
-        price: product.querySelector("span").textContent,
-        id: product.querySelector("i").getAttribute("data-id"),
-        number: 1,
+        const shopBtnId = evt.target.getAttribute("data-id");
+        addShopProduct (shopBtnId);
     };
-    const exist = likeProducts.some ( product => product.id === infoLikeProduct.id);
-    if  (exist) {
-        likeProducts = [...likeProducts];
-    } else {
-        likeProducts = [...likeProducts, infoLikeProduct];
-    }
-    likesHTML();
-}
+})
 
-    // Crear objeto con info del producto y verificar si el producto ya existe en el arreglo CartProducts
+    //Agregar productos al arreglo
 
-let cartProducts = [];
-
-function readCartProductInfo (product) {
-    const infoCartProduct = {
-        image: product.querySelector("img").src,
-        name: product.querySelector("h3").textContent,
-        price: parseFloat(product.querySelector("span").textContent),
-        id: product.querySelector("i").getAttribute("data-id"),
-        number: 1,
-    };
-    const exist = cartProducts.some ( product => product.id === infoCartProduct.id);
-    if  (exist) {
-        const products = cartProducts.map ( product => {
-            if (product.id === infoCartProduct.id) {
+function addShopProduct (shopBtnId) {
+    const shopProduct = products.filter(product => product.id === shopBtnId);
+    const existe = shopListProducts.some (product => product.id === shopBtnId)
+    if (existe) {
+        const selectProducts = shopListProducts.map( product => {
+            if (product.id === shopBtnId) {
                 product.number++;
                 return product;
             } else {
-                return product;
+                return product
             }
         })
-        cartProducts = [...products];
+        shopListProducts = [...selectProducts];
     } else {
-        cartProducts = [...cartProducts, infoCartProduct];
+        shopListProducts = [...shopListProducts, ...shopProduct];
     }
-
-    calculateTotalPrice();
-    cartHTML();
+    shopProductsHTML();
 }
 
-    // Crear HTML con la información del arreglo e imprimirla en el Contenedor de Likes
+    // Crear HTML con la información del arreglo e imprimirla en el contenedor HTML
 
-const likesTable = document.querySelector("#likesTable tbody");
+const shopTable = document.querySelector("#cartTable tbody");
 
-function likesHTML () {
-    cleanLikesHTML();
-
-    likeProducts.forEach( product => {
-        const {image, name, price, id} = product;
+function shopProductsHTML () {
+    cleanShopProductsHTML();
+    shopListProducts.forEach( product => {
+        const {name, measurementUnit, price, currency, image, number, id} = product;
+        const accumulatedPrice = (price * number).toFixed(2)
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>
                 <img src="${image}" width=100>
             </td>
-            <td>${name}</td>
-            <td>${price}</td>
+            <td>${name} / ${measurementUnit}<br><span>X ${number} Units</span></td>
+            <td>${accumulatedPrice} ${currency}</td>
             <td>
                 <a href="#" class="deleteProduct" data-id="${id}"> X </a>
             </td>
         `;
 
-        likesTable.appendChild(row)
-        updateLikesNumber ()
+        shopTable.appendChild(row)
+        updateCartNumber ();
+        calculateTotalPrice ();
     })
-};
-
-function cleanLikesHTML () {
-    while (likesTable.firstChild) {
-        likesTable.removeChild(likesTable.firstChild)
-    }
-};
-
-    // Crear HTML con la información del arreglo e imprimirla en el Contenedor de Cart
-
-const cartTable = document.querySelector("#cartTable tbody");
-
-function cartHTML () {
-    cleanCartHTML();
-
-    cartProducts.forEach( product => {
-        const {image, name, price, id, number} = product;
-        const accumulatedPrice = (price * number).toFixed(2)
-        const row = document.createElement("tr");
-        row.innerHTML = `
-        <td>
-            <img src="${image}" width=100>
-        </td>
-        <td>${name}<br><span>X ${number} Units</span></td>
-        <td>${accumulatedPrice} USD</td>
-        <td>
-            <a href="#" class="deleteProduct" data-id="${id}"> X </a>
-        </td>
-    `;
-
-    cartTable.appendChild(row)
-    updateCartNumber ()
-    })
-    
 }
 
-function cleanCartHTML () {
-    while (cartTable.firstChild) {
-        cartTable.removeChild(cartTable.firstChild)
+function cleanShopProductsHTML () {
+    while (shopTable.firstChild) {
+        shopTable.removeChild(shopTable.firstChild)
     }
+};
+
+    // Eliminar productos
+
+cartContainer.addEventListener("click", eliminarShop);
+
+function eliminarShop (evt) {
+    if (evt.target.classList.contains("deleteProduct")) {
+        const productId = evt.target.getAttribute("data-id");
+        shopListProducts = shopListProducts.filter(product => product.id !== productId);
+    }
+    shopProductsHTML();
+    updateCartNumber ();
+    calculateTotalPrice ();
+};
     
-};
+        // Vaciar el carrito
+    
+const emptyShop = document.querySelector("#emptyCartBtn");
 
-
-    // Eliminar productos de Favoritos
-
-likesContainer.addEventListener("click", eliminarLike);
-
-function eliminarLike (evt) {
-    if (evt.target.classList.contains("deleteProduct")) {
-        const productId = evt.target.getAttribute("data-id");
-        likeProducts = likeProducts.filter(product => product.id !== productId);
-    }
-    likesHTML();
-    updateLikesNumber ()
-};
-
-    // Eliminar productos del carrito
-
-cartContainer.addEventListener("click", eliminarCart);
-
-function eliminarCart (evt) {
-    if (evt.target.classList.contains("deleteProduct")) {
-        const productId = evt.target.getAttribute("data-id");
-        cartProducts = cartProducts.filter(product => product.id !== productId);
-    }
-    cartHTML();
-    calculateTotalPrice();
-    updateCartNumber ()
-};
-
-    // Vaciar productos de favoritos
-
-const emptyLikes = document.querySelector("#emptyLikesBtn");
-
-emptyLikes.addEventListener ("click", () => {
-    likeProducts = [];
-    cleanLikesHTML ();
-    updateLikesNumber ()
+emptyShop.addEventListener ("click", () => {
+    shopListProducts = [];
 })
-
-    // Vaciar productos del carrito
-
-const emptyCart = document.querySelector("#emptyCartBtn");
-
-emptyCart.addEventListener ("click", () => {
-    cartProducts = [];
-    cleanLikesHTML ();
-    updateCartNumber ()
-})
-
-    // Indicar la cantidad de favoritos
-function updateLikesNumber () {
-    const likesIndicator = document.querySelector("#likesIndicator")
-    const likesIndicator02 = document.querySelector("#likesIndicator02");
-    likesIndicator.textContent = likeProducts.length;
-    likesIndicator02.textContent = likeProducts.length;
-}
 
     // Indicar la cantidad de productos en el carrito
+
 function updateCartNumber () {
     const cartIndicator = document.querySelector("#cartIndicator")
     const cartIndicator02 = document.querySelector("#cartIndicator02");
-    cartIndicator.textContent = cartProducts.length;
-    cartIndicator02.textContent = cartProducts.length;
+    cartIndicator.textContent = shopListProducts.length;
+    cartIndicator02.textContent = shopListProducts.length;
 }
 
     // Calcular y mostrar el precio total
 
 function calculateTotalPrice () {
     let totalPrice;
-    const totalPrice01HTML = document.querySelector("#totalPrice01");
-    const totalPrice02HTML = document.querySelector("#totalPrice02");
+    const totalPrice01DOM = document.querySelector("#totalPrice01");
+    const totalPrice02DOM = document.querySelector("#totalPrice02"); 
 
-    totalPrice = cartProducts.map(product => product.price * product.number).reduce((total, productPrice) => total + productPrice, 0);
-    
-    totalPrice01HTML.textContent = `${(totalPrice).toFixed(2)} USD`;
-    totalPrice02HTML.textContent = `${(totalPrice).toFixed(2)} USD`;
-};
+    totalPrice = shopListProducts.map( product => product.price * product.number).reduce((total, productPrice) => total + productPrice, 0);
+
+    totalPrice01DOM.textContent = `${(totalPrice).toFixed(2)} USD`;
+    totalPrice02DOM.textContent = `${(totalPrice).toFixed(2)} USD`;
+}
