@@ -637,6 +637,13 @@ footer .footerInfo__subscribe .errorMessage {
     text-align: center;
 }
 
+footer .footerInfo__subscribe .sendMessage {
+    padding-top: 1rem;
+    font-size: 1.6rem;
+    color: var(--dark-green);
+    text-align: center;
+}
+
 .disableBtn {
     cursor: not-allowed;
     background-color: var(--dark-green) !important;
