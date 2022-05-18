@@ -85,6 +85,13 @@ overlay02.addEventListener("click", () => {
     overlay02.style.opacity = "0";
 })
 
+    // Mostrar la información del LocalStorage al cargar la página
+
+document.addEventListener("DOMContentLoaded", () => {
+    likeListProducts = JSON.parse(localStorage.getItem("likeListProducts")) || [];
+    likeProductsHTML();
+} )
+
     // Detectar click en botón de agregar a favoritos
 
 productsContainerDOM.addEventListener ("click", (evt) => {
@@ -131,7 +138,17 @@ function likeProductsHTML () {
         likesTable.appendChild(row)
         updateLikesNumber()
     })
+
+    syncUpLikeStorage();
 }
+
+    // Sincronizar el arreglo con el LocalStorage
+
+function syncUpLikeStorage() {
+    localStorage.setItem("likeListProducts", JSON.stringify(likeListProducts));
+}
+
+    // Limpiar el arreglo antes de imprimirlo nuevamente
 
 function cleanLikeProductsHTML () {
     while (likesTable.firstChild) {
@@ -205,6 +222,13 @@ overlay02.addEventListener("click", () => {
     overlay02.style.opacity = "0";
 })
 
+// Mostrar la información del LocalStorage al cargar la página
+
+document.addEventListener("DOMContentLoaded", () => {
+    shopListProducts = JSON.parse(localStorage.getItem("shopListProducts")) || [];
+    shopProductsHTML();
+} )
+
     // Detectar click en botón de agregar a carrito
 
 productsContainerDOM.addEventListener ("click", (evt) => {
@@ -261,7 +285,17 @@ function shopProductsHTML () {
         updateCartNumber ();
         calculateTotalPrice ();
     })
+
+    syncUpShopStorage()
 }
+
+// Sincronizar el arreglo con el LocalStorage
+
+function syncUpShopStorage() {
+    localStorage.setItem("shopListProducts", JSON.stringify(shopListProducts));
+}
+
+    // Limpiar el arreglo antes de imprimirlo nuevamente
 
 function cleanShopProductsHTML () {
     while (shopTable.firstChild) {
