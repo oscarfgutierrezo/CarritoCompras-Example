@@ -91,6 +91,7 @@ productsContainerDOM.addEventListener ("click", (evt) => {
     if (evt.target.classList.contains("fa-heart")) {
         const likeBtnId = evt.target.getAttribute("data-id")
         addLikeProduct (likeBtnId);
+        showLikeSnackbar (likeBtnId)
     };
 })
 
@@ -161,11 +162,21 @@ emptyLikes.addEventListener ("click", () => {
 
     // Indicar la cantidad de favoritos
 
-function updateLikesNumber () {
+function updateLikesNumber() {
     const likesIndicator = document.querySelector("#likesIndicator")
     const likesIndicator02 = document.querySelector("#likesIndicator02");
     likesIndicator.textContent = likeListProducts.length;
     likesIndicator02.textContent = likeListProducts.length;
+}
+
+    // Mostrar snackbar del producto agregado
+
+function showLikeSnackbar(id) {
+    const snackbar = document.querySelector("#snackbar");
+    const selectProduct = products.find ( product => product.id === id);
+    snackbar.className = "showSnackbar";
+    snackbar.textContent = `You added ${selectProduct.name} to Favorites Cart`;
+    setTimeout(() => {snackbar.className = snackbar.className.replace("showSnackbar", "");}, 2000)
 }
 
 
@@ -200,6 +211,7 @@ productsContainerDOM.addEventListener ("click", (evt) => {
     if (evt.target.classList.contains("fa-bag-shopping")) {
         const shopBtnId = evt.target.getAttribute("data-id");
         addShopProduct (shopBtnId);
+        showShopSnackbar (shopBtnId)
     };
 })
 
@@ -299,4 +311,14 @@ function calculateTotalPrice () {
 
     totalPrice01DOM.textContent = `${(totalPrice).toFixed(2)} USD`;
     totalPrice02DOM.textContent = `${(totalPrice).toFixed(2)} USD`;
+}
+
+
+
+function showShopSnackbar(id) {
+    const snackbar = document.querySelector("#snackbar");
+    const selectProduct = products.find ( product => product.id === id);
+    snackbar.className = "showSnackbar";
+    snackbar.textContent = `You added ${selectProduct.name} to Shopping Cart`;
+    setTimeout(() => {snackbar.className = snackbar.className.replace("showSnackbar", "");}, 2000)
 }
